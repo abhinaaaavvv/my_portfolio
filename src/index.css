@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --light: #f1ece9;
+  --dark: #141414;
+  color: var(--dark);
+}
+
+* {
+  font-size: 16px;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  background-color: var(--light);
+}
