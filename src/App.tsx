@@ -70,7 +70,16 @@ const App = () => {
         <p className="pb-4">
           still figuring everything out. and that's the fun part.
         </p>
-        <p className="pb-4">india.</p>
+        <p className="pb-4">
+          <a
+            href="https://maps.app.goo.gl/JuB4mwM1AEpRkM8B8"
+            target="_blank"
+            rel="noreferrer"
+            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+          >
+            india.
+          </a>
+        </p>
         <p className="pb-4 text-stone-400">{localTime} local time</p>
         <p>
           <a
