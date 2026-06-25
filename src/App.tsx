@@ -83,7 +83,7 @@ const App = () => {
           </a>
           <span className="mx-1 text-stone-400"> | </span>
           <a
-            href="discord.com/users/1396207633073180762"
+            href="https://discord.com/users/1396207633073180762"
             target="_blank"
             rel="noreferrer"
             className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
@@ -128,7 +128,7 @@ const App = () => {
           </a>
           <span className="mx-1 text-stone-400"> | </span>
           <a
-            href="https://www.linkedin.com/in/abhinavsarkar-bangalore/https://x.com/abhinaaaavvv"
+            href="https://x.com/abhinaaaavvv"
             target="_blank"
             rel="noreferrer"
             className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
