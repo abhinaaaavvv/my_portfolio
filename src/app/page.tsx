@@ -27,7 +27,7 @@ const Content = () => (
   <div className="mx-auto w-full max-w-3xl p-4 sm:p-6 md:p-8 lg:p-10">
     <p className="pb-4">hey, this is <a href="https://www.linkedin.com/in/abhinavsarkar-bangalore/" className="underline decoration-(--link-underline) underline-offset-4 transition-[text-decoration-color] hover:decoration-(--link-underline-hover)" target="_blank" rel="noreferrer">abhinav</a>,</p>
     <p className="pb-4">i make cool stuff...or more like i want to.</p>
-    <p className="pb-4">i&aposm 17</p>
+    <p className="pb-4">i&apos;m 17</p>
     <p className="pb-4">
       i build things, sometimes they work mostly they break, either ways, i
       learn something.
@@ -47,28 +47,27 @@ const Content = () => (
       things i wanna learn.
     </p>
     <p className="pb-4">
-      {" "}
-      so yeah, i don&apost really have a niche. i love learning and i collect
+      so yeah, i don&apos;t really have a niche. i love learning and i collect
       skills like infinity stones.
     </p>
     <p className="pb-4">
-      i&aposm currently building projects, studying startups, binge watching
+      i&apos;m currently building projects, studying startups, binge watching
       podcasts, learning new stuff along with surviving 12th isc and trying to
-      become the kind of engineer my 10 y/o self would&aposve thought was fictional.
+      become the kind of engineer my 10 y/o self would&apos;ve thought was fictional.
     </p>
     <p className="pb-4">
       i belive engineering is the closest thing to having a superpower, i mean u
       can literally build anything you want from scratch.
     </p>
     <p className="pb-4">
-      i don&apost dream about getting a job, i dream about building a company people
+      i don&apos;t dream about getting a job, i dream about building a company people
       wish existed.
     </p>
     <p className="pb-4">
-      if something doesn&apost exist, i&aposll probably try making it.
+      if something doesn&apos;t exist, i&apos;ll probably try making it.
     </p>
     <p className="pb-4">
-      still figuring everything out. and that&aposs the fun part.
+      still figuring everything out. and that&apos;s the fun part.
     </p>
     <p className="pb-4">
       <a
