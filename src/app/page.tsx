@@ -33,7 +33,7 @@ const Content = () => (
       learn something.
     </p>
     <p className="pb-4">
-      thanks to a fictional character who is crazy rich and smart and escaped
+      thanks to a fictional character who is crazy rich and smart, and escaped
       from a cave, i was convinced that engineering is fun and ever since then i
       found my interest in tech and entrepreneurship.
     </p>
@@ -43,7 +43,7 @@ const Content = () => (
     </p>
     <p className="pb-4">
       in the past year i learnt web/app development, agentic ai, linux, video
-      editing, mun, basketball, trading and e comm and theres another list of
+      editing, basketball, trading and e comm and theres another list of
       things i wanna learn.
     </p>
     <p className="pb-4">
