@@ -1,4 +1,5 @@
 import { useEffect, useState, type CSSProperties } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 type Theme = "light" | "dark";
 type ThemeStyle = CSSProperties &
@@ -261,6 +262,7 @@ const App = () => {
           </a>
         </p>
       </div>
+      <Analytics />
     </div>
   );
 };
