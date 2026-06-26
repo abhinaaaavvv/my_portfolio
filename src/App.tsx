@@ -1,4 +1,67 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
+
+type Theme = "light" | "dark";
+type ThemeStyle = CSSProperties &
+  Record<
+    "--light" | "--dark" | "--link-underline" | "--link-underline-hover",
+    string
+  >;
+type ThemeState = { theme: Theme; hasStoredTheme: boolean };
+
+const THEME_STORAGE_KEY = "portfolio-theme";
+
+const themeStyles: Record<Theme, ThemeStyle> = {
+  light: {
+    "--light": "#f1ece9",
+    "--dark": "#141414",
+    "--link-underline": "color-mix(in srgb, var(--dark) 25%, var(--light))",
+    "--link-underline-hover": "var(--dark)",
+    backgroundColor: "var(--light)",
+    color: "var(--dark)",
+    colorScheme: "light",
+  },
+  dark: {
+    "--light": "#141414",
+    "--dark": "#f1ece9",
+    "--link-underline": "color-mix(in srgb, var(--dark) 35%, var(--light))",
+    "--link-underline-hover": "var(--dark)",
+    backgroundColor: "var(--light)",
+    color: "var(--dark)",
+    colorScheme: "dark",
+  },
+};
+
+const linkClassName =
+  "text-inherit underline decoration-[var(--link-underline)] underline-offset-4 transition-colors hover:decoration-[var(--link-underline-hover)]";
+
+const getStoredTheme = (): Theme | null => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+
+  return storedTheme === "light" || storedTheme === "dark" ? storedTheme : null;
+};
+
+const getSystemTheme = (): Theme => {
+  if (typeof window === "undefined" || !window.matchMedia) {
+    return "light";
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const getInitialThemeState = (): ThemeState => {
+  const storedTheme = getStoredTheme();
+
+  return {
+    theme: storedTheme ?? getSystemTheme(),
+    hasStoredTheme: storedTheme !== null,
+  };
+};
 
 const timeFormatter = new Intl.DateTimeFormat("en-IN", {
   timeZone: "Asia/Kolkata",
@@ -9,9 +72,14 @@ const timeFormatter = new Intl.DateTimeFormat("en-IN", {
 });
 
 const App = () => {
+  const [{ theme, hasStoredTheme }, setThemeState] =
+    useState<ThemeState>(getInitialThemeState);
   const [localTime, setLocalTime] = useState(() =>
     timeFormatter.format(new Date()),
   );
+
+  const isDarkMode = theme === "dark";
+  const nextTheme = isDarkMode ? "light" : "dark";
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -21,8 +89,55 @@ const App = () => {
     return () => window.clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--light",
+      themeStyles[theme]["--light"],
+    );
+    document.documentElement.style.setProperty(
+      "--dark",
+      themeStyles[theme]["--dark"],
+    );
+    document.documentElement.style.colorScheme = theme;
+  }, [theme]);
+
+  useEffect(() => {
+    if (hasStoredTheme || !window.matchMedia) {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleThemeChange = (event: MediaQueryListEvent) => {
+      setThemeState({
+        theme: event.matches ? "dark" : "light",
+        hasStoredTheme: false,
+      });
+    };
+
+    mediaQuery.addEventListener("change", handleThemeChange);
+
+    return () => mediaQuery.removeEventListener("change", handleThemeChange);
+  }, [hasStoredTheme]);
+
+  const handleThemeToggle = () => {
+    window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    setThemeState({ theme: nextTheme, hasStoredTheme: true });
+  };
+
   return (
-    <div className="min-h-screen w-full px-6 py-16 sm:px-8 sm:py-14 md:px-10 md:py-20 lg:px-12 lg:py-16">
+    <div
+      className="min-h-screen w-full px-6 py-16 sm:px-8 sm:py-14 md:px-10 md:py-20 lg:px-12 lg:py-16"
+      style={themeStyles[theme]}
+    >
+      <button
+        type="button"
+        onClick={handleThemeToggle}
+        className="fixed right-5 top-5 z-10 inline-flex border px-3 py-1 leading-none transition-opacity hover:opacity-70 sm:right-8 sm:top-8"
+        aria-label={`Switch to ${nextTheme} mode`}
+        aria-pressed={isDarkMode}
+      >
+        {nextTheme} mode
+      </button>
       <div className="mx-auto w-full max-w-3xl p-4 sm:p-6 md:p-8 lg:p-10">
         <p className="pb-4">hey, this is abhinav,</p>
         <p className="pb-4">i make cool stuff...or more like i want to.</p>
@@ -75,72 +190,72 @@ const App = () => {
             href="https://maps.app.goo.gl/JuB4mwM1AEpRkM8B8"
             target="_blank"
             rel="noreferrer"
-            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+            className={linkClassName}
           >
             india.
           </a>
         </p>
-        <p className="pb-4 text-stone-400">{localTime} local time</p>
+        <p className="pb-4 opacity-60">{localTime} local time</p>
         <p>
           <a
             href="mailto:abhi.sarkar.anu@gmail.com"
             target="_blank"
             rel="noreferrer"
-            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+            className={linkClassName}
           >
             abhi.sarkar.anu@gmail.com
           </a>
-          <span className="mx-1 text-stone-400"> | </span>
+          <span className="mx-1 opacity-60"> | </span>
           <a
             href="https://discord.com/users/1396207633073180762"
             target="_blank"
             rel="noreferrer"
-            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+            className={linkClassName}
           >
             discord
           </a>
-          <span className="mx-1 text-stone-400"> | </span>
+          <span className="mx-1 opacity-60"> | </span>
           <a
             href="https://github.com/abhinaaaavvv/"
             target="_blank"
             rel="noreferrer"
-            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+            className={linkClassName}
           >
             github
           </a>
-          <span className="mx-1 text-stone-400"> | </span>
+          <span className="mx-1 opacity-60"> | </span>
           <a
             href="https://www.instagram.com/abhinaaaavvv._/"
             target="_blank"
             rel="noreferrer"
-            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+            className={linkClassName}
           >
             instagram
           </a>
-          <span className="mx-1 text-stone-400"> | </span>
+          <span className="mx-1 opacity-60"> | </span>
           <a
             href="https://www.linkedin.com/in/abhinavsarkar-bangalore/"
             target="_blank"
             rel="noreferrer"
-            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+            className={linkClassName}
           >
             linkedin
           </a>
-          <span className="mx-1 text-stone-400"> | </span>
+          <span className="mx-1 opacity-60"> | </span>
           <a
             href="https://www.reddit.com/user/Beautiful_Tap_5717/"
             target="_blank"
             rel="noreferrer"
-            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+            className={linkClassName}
           >
             reddit
           </a>
-          <span className="mx-1 text-stone-400"> | </span>
+          <span className="mx-1 opacity-60"> | </span>
           <a
             href="https://x.com/abhinaaaavvv"
             target="_blank"
             rel="noreferrer"
-            className="underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-[#141414]"
+            className={linkClassName}
           >
             x.com
           </a>
