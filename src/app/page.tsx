@@ -56,7 +56,7 @@ const Content = () => (
       become the kind of engineer my 10 y/o self would&apos;ve thought was fictional.
     </p>
     <p className="pb-4">
-      i belive engineering is the closest thing to having a superpower, i mean u
+      i belive engineering is the closest thing to having a superpower, i mean you
       can literally build anything you want from scratch.
     </p>
     <p className="pb-4">
