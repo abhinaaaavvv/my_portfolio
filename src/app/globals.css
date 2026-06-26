@@ -12,3 +12,8 @@
   font-weight: 400;
   background-color: var(--light);
 }
+
+::selection {
+  background-color: var(--dark);
+  color: var(--light);
+}

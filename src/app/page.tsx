@@ -24,52 +24,52 @@ const ThemeToggle = () => {
 };
 
 const Content = () => (
-  <div className="mx-auto w-full max-w-3xl p-4 sm:p-6 md:p-8 lg:p-10">
-    <p className="pb-4">hey, this is <a href="https://www.linkedin.com/in/abhinavsarkar-bangalore/" className="underline decoration-(--link-underline) underline-offset-4 transition-[text-decoration-color] hover:decoration-(--link-underline-hover)" target="_blank" rel="noreferrer">abhinav</a>,</p>
-    <p className="pb-4">i make cool stuff...or more like i want to.</p>
-    <p className="pb-4">i&apos;m 17</p>
-    <p className="pb-4">
+  <div className="mx-auto w-full max-w-3xl select-none p-4 sm:p-6 md:p-8 lg:p-10">
+    <p className="pb-8">hey, this is <a href="https://www.linkedin.com/in/abhinavsarkar-bangalore/" className="underline decoration-(--link-underline) underline-offset-4 transition-[text-decoration-color] hover:decoration-(--link-underline-hover)" target="_blank" rel="noreferrer">abhinav</a>,</p>
+    <p className="pb-8">i make cool stuff...or more like i want to.</p>
+    <p className="pb-8">i&apos;m 17</p>
+    <p className="pb-8">
       i build things, sometimes they work mostly they break, either ways, i
       learn something.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       thanks to a fictional character who is crazy rich and smart, and escaped
       from a cave, i was convinced that engineering is fun and ever since then i
       found my interest in tech and entrepreneurship.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       im a full stack developer, video editor, full time overthinker and an
       amibitious kid.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       in the past year i learnt web/app development, agentic ai, linux, video
       editing, basketball, trading and e comm and theres another list of
       things i wanna learn.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       so yeah, i don&apos;t really have a niche. i love learning and i collect
       skills like infinity stones.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       i&apos;m currently building projects, studying startups, binge watching
       podcasts, learning new stuff along with surviving 12th isc and trying to
       become the kind of engineer my 10 y/o self would&apos;ve thought was fictional.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       i believe engineering is the closest thing to having a superpower, i mean you
       can literally build anything you want from scratch.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       i don&apos;t dream about getting a job, i dream about building a company people
       wish existed.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       if something doesn&apos;t exist, i&apos;ll probably try making it.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       still figuring everything out. and that&apos;s the fun part.
     </p>
-    <p className="pb-4">
+    <p className="pb-8">
       <a
         href="https://maps.app.goo.gl/JuB4mwM1AEpRkM8B8"
         target="_blank"
@@ -79,7 +79,7 @@ const Content = () => (
         india.
       </a>
     </p>
-    <p className="pb-4 opacity-60">
+    <p className="pb-8 opacity-60">
       <LocalTime />
     </p>
     <p>
