@@ -25,7 +25,18 @@ const ThemeToggle = () => {
 
 const Content = () => (
   <div className="mx-auto w-full max-w-3xl select-none p-4 sm:p-6 md:p-8 lg:p-10">
-    <p className="pb-8">hey, this is <a href="https://www.linkedin.com/in/abhinavsarkar-bangalore/" className="underline decoration-(--link-underline) underline-offset-4 transition-[text-decoration-color] hover:decoration-(--link-underline-hover)" target="_blank" rel="noreferrer">abhinav</a>,</p>
+    <p className="pb-8">
+      hey, this is{" "}
+      <a
+        href="https://www.linkedin.com/in/abhinavsarkar-bangalore/"
+        className="underline decoration-(--link-underline) underline-offset-4 transition-[text-decoration-color] hover:decoration-(--link-underline-hover)"
+        target="_blank"
+        rel="noreferrer"
+      >
+        abhinav
+      </a>
+      ,
+    </p>
     <p className="pb-8">i make cool stuff...or more like i want to.</p>
     <p className="pb-8">i&apos;m 17</p>
     <p className="pb-8">
@@ -43,8 +54,8 @@ const Content = () => (
     </p>
     <p className="pb-8">
       in the past year i learnt web/app development, agentic ai, linux, video
-      editing, basketball, trading and e comm and theres another list of
-      things i wanna learn.
+      editing, basketball, trading and e comm and theres another list of things
+      i wanna learn.
     </p>
     <p className="pb-8">
       so yeah, i don&apos;t really have a niche. i love learning and i collect
@@ -53,15 +64,16 @@ const Content = () => (
     <p className="pb-8">
       i&apos;m currently building projects, studying startups, binge watching
       podcasts, learning new stuff along with surviving 12th isc and trying to
-      become the kind of engineer my 10 y/o self would&apos;ve thought was fictional.
+      become the kind of engineer my 10 y/o self would&apos;ve thought was
+      fictional.
     </p>
     <p className="pb-8">
-      i believe engineering is the closest thing to having a superpower, i mean you
-      can literally build anything you want from scratch.
+      i believe engineering is the closest thing to having a superpower, i mean
+      you can literally build anything you want from scratch.
     </p>
     <p className="pb-8">
-      i don&apos;t dream about getting a job, i dream about building a company people
-      wish existed.
+      i don&apos;t dream about getting a job, i dream about building a company
+      people wish existed.
     </p>
     <p className="pb-8">
       if something doesn&apos;t exist, i&apos;ll probably try making it.
@@ -76,7 +88,7 @@ const Content = () => (
         rel="noreferrer"
         className="underline decoration-(--link-underline) underline-offset-4 transition-[text-decoration-color] hover:decoration-(--link-underline-hover)"
       >
-        india.
+        India.
       </a>
     </p>
     <p className="pb-8 opacity-60">
