@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 const formatter = new Intl.DateTimeFormat("en-IN", {
   timeZone: "Asia/Kolkata",
@@ -10,18 +10,37 @@ const formatter = new Intl.DateTimeFormat("en-IN", {
   hour12: false,
 });
 
+let time = "";
+
+if (typeof window !== "undefined") {
+  time = formatter.format(new Date());
+}
+
+const subscribe = (onChange: () => void) => {
+  const id = window.setInterval(() => {
+    time = formatter.format(new Date());
+    onChange();
+  }, 1000);
+  return () => window.clearInterval(id);
+};
+
+const getSnapshot = () => {
+  if (time === "") {
+    time = formatter.format(new Date());
+  }
+  return time;
+};
+
+const getServerSnapshot = () => "";
+
 export const LocalTime = () => {
-  const [time, setTime] = useState<string | null>(null);
+  const current = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
 
-  useEffect(() => {
-    setTime(formatter.format(new Date()));
-    const id = window.setInterval(() => {
-      setTime(formatter.format(new Date()));
-    }, 1000);
-    return () => window.clearInterval(id);
-  }, []);
+  if (!current) return null;
 
-  if (time === null) return null;
-
-  return <>{time} local time</>;
+  return <>{current} local time</>;
 };
