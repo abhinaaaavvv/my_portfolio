@@ -8,12 +8,18 @@ type Link = {
 };
 
 const links: Link[] = [
-  { href: "mailto:abhi.sarkar.anu@gmail.com", label: "abhi.sarkar.anu@gmail.com" },
+  {
+    href: "mailto:abhi.sarkar.anu@gmail.com",
+    label: "abhi.sarkar.anu@gmail.com",
+  },
   { href: "https://discord.com/users/1396207633073180762", label: "discord" },
   { href: "https://github.com/abhinaaaavvv/", label: "github" },
   { href: "https://www.instagram.com/abhinaaaavvv._/", label: "instagram" },
-  { href: "https://www.linkedin.com/in/abhinavsarkar-bangalore/", label: "linkedin" },
-  { href: "https://www.reddit.com/user/Beautiful_Tap_5717/", label: "reddit" },
+  {
+    href: "https://www.linkedin.com/in/abhinavsarkar-bangalore/",
+    label: "linkedin",
+  },
+  { href: "https://www.reddit.com/user/abhinaaaavvv/", label: "reddit" },
   { href: "https://x.com/abhinaaaavvv", label: "x.com" },
 ];
 
