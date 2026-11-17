@@ -1,19 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --light: #f1ece9;
-  --dark: #141414;
-  color: var(--dark);
+    --light: #f1ece9;
+    --dark: #141414;
+    /* Derived from --light/--dark so they follow the active theme automatically. */
+    --link-underline: color-mix(in srgb, var(--dark) 25%, var(--light));
+    --link-underline-hover: var(--dark);
+    color: var(--dark);
+    background-color: var(--light);
 }
 
 * {
-  font-size: 16px;
-  font-family: var(--font-eb-garamond), "EB Garamond", serif;
-  font-weight: 400;
-  background-color: var(--light);
+    font-size: 16px;
+    font-family: var(--font-eb-garamond), "EB Garamond", serif;
+    font-weight: 400;
 }
 
 ::selection {
-  background-color: var(--dark);
-  color: var(--light);
+    background-color: var(--dark);
+    color: var(--light);
 }

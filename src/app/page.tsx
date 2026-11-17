@@ -1,10 +1,11 @@
 "use client";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import { ThemeProvider, useTheme } from "@/components/theme-provider";
-import { LocalTime } from "@/components/local-time";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import { Links } from "@/components/links";
+import { LocalTime } from "@/components/local-time";
+import { ThemeProvider, useTheme } from "@/components/theme-provider";
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
@@ -16,7 +17,6 @@ const ThemeToggle = () => {
       onClick={toggleTheme}
       className="fixed right-5 top-5 z-10 inline-flex border px-3 py-1 leading-none transition-opacity hover:opacity-70 sm:right-8 sm:top-8"
       aria-label={`Switch to ${next} mode`}
-      aria-pressed={theme === "dark"}
     >
       {next} mode
     </button>
@@ -24,7 +24,7 @@ const ThemeToggle = () => {
 };
 
 const Content = () => (
-  <div className="mx-auto w-full max-w-3xl select-none p-4 sm:p-6 md:p-8 lg:p-10">
+  <div className="mx-auto w-full max-w-3xl p-4 sm:p-6 md:p-8 lg:p-10">
     <p className="pb-8">
       hey, this is{" "}
       <a

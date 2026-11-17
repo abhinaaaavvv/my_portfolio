@@ -1,12 +1,12 @@
 "use client";
 
 import {
+  type ReactNode,
   createContext,
   useCallback,
   useContext,
   useEffect,
   useSyncExternalStore,
-  type ReactNode,
 } from "react";
 
 type Theme = "light" | "dark";
@@ -84,19 +84,14 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   );
 
   useEffect(() => {
+    // Background, text and link colours are all derived from these two
+    // variables in globals.css, so only the variables need updating here.
+    const root = document.documentElement;
     const [light, dark] =
       themeValue === "light" ? ["#f1ece9", "#141414"] : ["#141414", "#f1ece9"];
 
-    const root = document.documentElement;
     root.style.setProperty("--light", light);
     root.style.setProperty("--dark", dark);
-    root.style.setProperty(
-      "--link-underline",
-      `color-mix(in srgb, ${dark} 25%, ${light})`,
-    );
-    root.style.setProperty("--link-underline-hover", dark);
-    root.style.backgroundColor = light;
-    root.style.color = dark;
     root.style.colorScheme = themeValue;
   }, [themeValue]);
 
